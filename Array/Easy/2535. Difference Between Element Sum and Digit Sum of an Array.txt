@@ -1,0 +1,21 @@
+class Solution {
+    public int differenceOfSum(int[] nums) {
+        
+        int EM = 0;
+        int DM = 0;
+        for(int i : nums){
+            EM += i;
+
+            while(i!=0){
+
+                DM += i%10;
+
+                i = i/10;
+            }
+        }
+        //System.out.println();
+        return Math.abs(EM-DM);
+    }
+}
+
+//to use any digit from double or above digit numbers use while loop like above.
