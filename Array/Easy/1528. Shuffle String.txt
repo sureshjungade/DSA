@@ -1,0 +1,15 @@
+class Solution {
+    public String restoreString(String s, int[] indices) {
+        
+        String[] mid = new String[s.length()];
+
+        for(int i=0; i<s.length(); i++){
+            mid[indices[i]] = String.valueOf(s.charAt(i));
+        }
+
+        String str = String.join("", mid);
+        return str;
+    }
+}
+
+//String.join("", mid); this method return the string according to patterns we defined in method.
