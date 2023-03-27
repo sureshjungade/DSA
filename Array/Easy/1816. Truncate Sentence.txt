@@ -1,0 +1,25 @@
+class Solution {
+    public String truncateSentence(String s, int k) {
+        
+        int count = 0;
+        int ind = 0;
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i)==' '){
+                count++;
+            }
+            if(count==k){
+                ind = i;
+                break;
+            }
+        }
+        if(count!=k){
+            ind = s.length();
+        }
+        String result = s.substring(0,ind);
+        return result;
+    }
+}
+
+
+things to be consider : s.charAt(i)==' ' not " "
+			s.substring(start,end)
