@@ -1,0 +1,50 @@
+class Solution {
+    public int maxProductDifference(int[] nums) {
+        
+        Arrays.sort(nums);
+        int n = nums.length; 
+
+        int diff = ((nums[n-1]*nums[n-2])-(nums[0]*nums[1]));
+
+        return diff;
+    }
+}
+
+
+optimized solution : Then, it iterates through the array "nums" using a for loop and checks each element against the values of 
+the four variables. If the element is greater than or equal to "largest", it becomes the new "largest" element, and the previous 
+"largest" value is shifted to "secondLargest". Similarly, if the element is less than or equal to "smallest", it becomes the new 
+"smallest" element, and the previous "smallest" value is shifted to "secondSmallest".
+
+
+
+
+class Solution {
+    public int maxProductDifference(int[] nums) {
+        
+        int n = nums.length; 
+        
+        int largest = -10000;
+        int secondLargest = -10000;
+         int smallest = 10000;
+         int secondSmallest = 10000;
+        for(int i=0; i<n; i++){
+            if(nums[i]>=largest){
+                secondLargest = largest;
+                largest = nums[i];
+            }else if(nums[i]>secondLargest){
+                secondLargest = nums[i];
+            }
+            if(nums[i]<smallest){
+                secondSmallest = smallest;
+                smallest = nums[i];
+            }else if(nums[i]<=secondSmallest){
+                secondSmallest = nums[i];
+            }
+        }
+        
+       // System.out.println(n1 + " " + n2 + " "+ n3 +" "+ n4);
+        int diff = ((largest*secondLargest)-(secondSmallest*smallest));
+        return diff;
+    }
+}
