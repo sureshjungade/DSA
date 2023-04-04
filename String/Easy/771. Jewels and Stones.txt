@@ -1,0 +1,15 @@
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+        // int count = 0;
+
+        // for(int i=0; i<stones.length(); i++){
+        //     if(jewels.contains(String.valueOf(stones.charAt(i)))){
+        //         count++;
+        //     }
+        // }
+        // return count;
+
+	//optimzed solution : o(N)  uses regular expression, replace the char from s which is not presesnt in j and return resultion string.
+        return S.replaceAll("[^" + J + "]", "").length();
+    }
+}
