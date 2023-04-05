@@ -1,0 +1,19 @@
+class Solution {
+    public String interpret(String s) {
+        StringBuilder sb = new StringBuilder();
+        int n = s.length();
+        for(int i=0; i<s.length(); i++){
+            if(i<n-1 && s.charAt(i)=='(' && s.charAt(i+1)==')'){
+                sb.append("o");
+                i++;
+            }
+            else if(i<n-1 && s.charAt(i)=='a' && s.charAt(i+1)=='l'){
+                sb.append("al");
+                i++;
+            }else if(s.charAt(i)=='G'){
+                sb.append("G");
+            }
+        }
+        return sb.toString();
+    }
+}
