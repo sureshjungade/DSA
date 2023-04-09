@@ -1,0 +1,51 @@
+class Solution {
+    public int countConsistentStrings(String a, String[] w) {
+        int count = 0;
+        
+        for(int i=0; i<w.length; i++){
+            String temp = w[i];
+            int tempc = 0;
+            for(int j=0; j<temp.length(); j++){
+                if(!(a.contains(String.valueOf(temp.charAt(j))))){
+                    tempc++;
+                    break;
+                }
+            }
+            if(tempc==0){
+                count++;
+            }
+        }
+        return count;
+
+        
+    }
+}
+
+//optimized solution : 
+
+class Solution {
+    public int countConsistentStrings(String a, String[] w) {
+        int count = w.length;
+        
+        int[] temp = new int[26];
+        for(char c : a.toCharArray()){
+            temp[c-'a']++;
+        }
+
+        for(int i=0; i<w.length; i++){
+            for(char c : w[i].toCharArray()){
+                 if(temp[c - 'a']==0){
+                     count--;
+                     break;
+                 }
+            }
+
+
+        }
+        return count;
+
+        
+    }
+}
+
+used extra array to store info which char are there in a. then we need to check whether it is in string of w[i] or not.
