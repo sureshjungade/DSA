@@ -1,0 +1,57 @@
+class Solution {
+    public String replaceDigits(String s) {
+        int n = s.length();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<n; i++){
+            if(i%2!=0){
+               char c= shift(s.charAt(i-1), Integer.parseInt(String.valueOf(s.charAt(i))));
+               sb.append(String.valueOf(c));
+            }else{
+                sb.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
+    public char shift(char temp, int tem){
+        String lower = "abcdefghijklmnopqrstuvwxyz";
+        int n = lower.length();
+        for(int i=0; i<n; i++){
+            if(lower.charAt(i)==temp){
+                return lower.charAt(i+tem);
+            }else{
+                continue;
+            }
+        }
+        return 'a';
+    }
+}
+
+
+
+optimized version :
+
+class Solution {
+    public String replaceDigits(String s) {
+        int n = s.length();
+       char [] arr = s.toCharArray();
+
+       for(int i=1; i<n; i+=2){
+           arr[i] = (char) (arr[i-1] + arr[i] - '0');
+       }
+        return String.valueOf(arr);
+    }
+
+    
+}
+
+The (char) in the statement (char) (arr[i-1] + arr[i] - '0') is a type casting operator in Java. It is used to explicitly 
+convert the resulting numeric value of the expression arr[i-1] + arr[i] - '0' into a character type before it is assigned to 
+the ith element of the arr array.
+
+Since the arr array is an array of characters, assigning a numeric value to one of its elements would result in an implicit 
+conversion of the numeric value to a character. However, the programmer has explicitly used the (char) type casting operator to 
+make it clear that the value should be converted to a character before it is stored in the array.
+
+So in this statement, the (char) type casting operator is used to ensure that the resulting value of the expression arr[i-1] + 
+arr[i] - '0' is treated as a character and assigned to the ith element of the arr array.
