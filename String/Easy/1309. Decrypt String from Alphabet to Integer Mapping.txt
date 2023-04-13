@@ -1,0 +1,23 @@
+class Solution {
+    public String freqAlphabets(String s) {
+        int n = s.length();
+        StringBuilder sb = new StringBuilder();
+       for(int i=0; i<n; i++){
+           if(i<n-2 && s.charAt(i+2)=='#'){
+               int num = Integer.parseInt(s.substring(i, i+2));
+               sb.append((char) (num+96)) ;
+               i +=2;
+               continue;
+           }else{
+               sb.append((char) (97 + s.charAt(i) - '1'));
+           }
+       }
+        return sb.toString();
+    }
+}
+
+The statement ans += (char) (num+96); takes an integer value num between 1 and 26 and converts it to its corresponding lowercase alphabetic character by adding the integer value 96 (which is the ASCII code for 'a') to num. This converts the integer value to its corresponding ASCII code for the lowercase alphabetic character, and then casts it to a char value. Finally, the resulting char value is added to the String ans. For example, if num is 1, then the resulting char value will be 'a', and ans will have the value "a".
+
+The statement ans += (char) (97 + s.charAt(i) - '1'); takes a numeric character '1' to '9' in the String s and converts it to its corresponding lowercase alphabetic character by subtracting the character '1' (which has an ASCII code of 49) from the character's ASCII code, adding 97 (which is the ASCII code for 'a') to the result, and casting the final result to a char value. Finally, the resulting char value is added to the String ans. For example, if s.charAt(i) is '1', then the resulting char value will be 'a', and ans will have the value "a".
+
+The main difference between these two statements is that the first statement takes an integer value between 1 and 26 as input, while the second statement takes a numeric character '1' to '9' as input. The first statement also uses a fixed offset of 96 to convert the integer value to its corresponding ASCII code for the lowercase alphabetic character, while the second statement uses a variable offset based on the input character's ASCII code.
