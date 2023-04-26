@@ -1,0 +1,18 @@
+class Solution {
+    public boolean checkDistances(String s, int[] a) {
+
+        Map<Character,Integer> map = new HashMap<>();
+        char[] arr = s.toCharArray();       
+        int n = arr.length;
+        for(int i=0; i<n; i++){
+            if(map.containsKey(arr[i])){
+                int start = map.get(arr[i]);
+                int diff = i - start -1;
+                if(a[arr[i]-'a'] != diff) return false;
+            }else{
+                map.put(arr[i],i);
+            }
+        }
+         return true;
+    }
+}
