@@ -1,0 +1,28 @@
+class Solution {
+    public int countWords(String[] words1, String[] words2) {
+        
+        int count  = 0;
+
+        Map<String,Integer> map = new HashMap<>();
+        for(String s : words1){
+            map.put(s, map.getOrDefault(s,0)+1);
+        }
+
+        for(String s : words2){
+            Integer freq = map.get(s);
+
+            if(freq!=null && freq<=1){
+                map.put(s, freq-1);
+            }
+        }
+
+        for(Integer i : map.values()){
+                if(i==0){
+                count++;
+                }
+            
+        }
+
+        return count;
+    }
+}
