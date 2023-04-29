@@ -1,0 +1,44 @@
+import java.util.NavigableSet;
+import java.util.TreeSet;
+import java.util.Iterator;
+class Solution {
+    public String greatestLetter(String s) {
+        // String ans = "";
+        // Set<Character> set = new TreeSet<>();
+        
+
+        // for(int i=0; i<s.length(); i++){
+        //     set.add(s.charAt(i));
+        // }
+        // List<Character> list = new ArrayList<>(set);
+        // // iterate over the elements in the list using an index
+        // for (int i = list.size() - 1; i >= 0; i--) {
+        //     if(set.contains(Character.toUpperCase(list.get(i))) &&
+        //         set.contains(Character.toLowerCase(list.get(i)))){
+        //         System.out.println(list.get(i)); 
+        //         ans = String.valueOf(Character.toUpperCase(list.get(i)));
+        //         break;
+        //     }
+            
+        // }
+       
+        // System.out.println(set.size());
+        // return ans;
+        return "";
+    }
+}
+
+
+optimized solution
+char uc = 'Z';
+        char lc = 'z';
+
+        for(int i=0; i<26; i++){
+           if(s.contains(Character.toString(uc)) && 
+           s.contains(Character.toString(lc))){
+               return Character.toString(uc);
+           }
+           System.out.println(lc); 
+           uc--;
+           lc--;
+        }
