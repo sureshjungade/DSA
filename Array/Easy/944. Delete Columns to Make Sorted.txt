@@ -1,0 +1,22 @@
+// j bahar se jump kara raha hai, or i ka length to same hi hoga sabke liye, isliye j ke liye n, and i ke liye m
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int count = 0;
+        int n = strs.length;
+        int m = strs[0].length();
+        for(int i=0; i<m; i++){
+        int temp  = 0;
+          for(int j=0; j<n-1; j++){
+              if(strs[j].charAt(i)>strs[j+1].charAt(i)){
+                  temp++;
+                  break;
+              }
+          }
+          if(temp!=0){
+              count++;
+          }
+        }
+
+        return count;
+    }
+}
