@@ -1,0 +1,64 @@
+class Solution {
+    public boolean halvesAreAlike(String s) {
+        String temp = "aeiou";
+        int count = 0;
+        int count1 = 0;
+        int n = s.length();
+        int mid = n/2;
+        for(int i=0; i<mid; i++){
+            if(s.charAt(i)=='a'){
+                count++;
+            }else if(s.charAt(i)=='A'){
+                count++;
+            }else if(s.charAt(i)=='e'){
+                count++;
+            }else if(s.charAt(i)=='E'){
+                count++;
+            }else if(s.charAt(i)=='I'){
+                count++;
+            }else if(s.charAt(i)=='i'){
+                count++;
+            }else if(s.charAt(i)=='o'){
+                count++;
+            }else if(s.charAt(i)=='O'){
+                count++;
+            }else if(s.charAt(i)=='u'){
+                count++;
+            }else if(s.charAt(i)=='U'){
+               count++;
+            }
+        }
+        StringBuilder sb1 = new StringBuilder();
+        for(int i=mid; i<n; i++){
+            if(s.charAt(i)=='a'){
+                count1++;
+            }else if(s.charAt(i)=='A'){
+                count1++;
+            }else if(s.charAt(i)=='e'){
+                count1++;
+            }else if(s.charAt(i)=='E'){
+                count1++;
+            }else if(s.charAt(i)=='I'){
+                count1++;
+            }else if(s.charAt(i)=='i'){
+                count1++;
+            }else if(s.charAt(i)=='o'){
+                count1++;
+            }else if(s.charAt(i)=='O'){
+                count1++;
+            }else if(s.charAt(i)=='u'){
+                count1++;
+            }else if(s.charAt(i)=='U'){
+                count1++;
+            }
+        }
+        if(count==count1){
+            return true;
+        }
+        else{
+                    return false;
+
+        }
+        
+    }
+}
