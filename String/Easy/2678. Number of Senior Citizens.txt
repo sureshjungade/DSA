@@ -1,0 +1,15 @@
+class Solution {
+    public int countSeniors(String[] s) {
+        int n = s.length;
+        int count = 0;
+        for(int i=0; i<n; i++){
+            String temp = s[i];
+            Integer ans = ((temp.charAt(11)-'0')*10 + temp.charAt(12)-'0');
+            if(ans>60){
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
