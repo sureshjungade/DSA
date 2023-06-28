@@ -1,0 +1,26 @@
+class Solution {
+    public int addDigits(int num) {
+        int sum = 0;
+
+        while(num!=0){
+            int rem = num%10;
+            sum += rem;
+            num /= 10;
+            if(num==0 && sum>9){
+                num = sum;
+                sum = 0;
+            }
+        }
+        return sum;
+    }
+}
+
+
+optimized version
+
+if (num==0) return 0;
+        if (num%9==0) return 9;
+        return num%9;
+
+if you divide num to 9 it will give you single number root, except for num which is 0 and divisible by 9.
+num which is divisible by 9, it's root number is 9.
