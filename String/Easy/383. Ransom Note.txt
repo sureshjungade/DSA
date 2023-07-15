@@ -1,0 +1,17 @@
+class Solution {
+    public boolean canConstruct(String r, String m) {
+        if(r.length()>m.length()) return false;
+        int[] alp = new int[26];
+        for(char c : m.toCharArray()){
+            alp[c-'a']++;
+        }
+
+        for(char c : r.toCharArray()){
+            if(alp[c-'a']==0) return false;
+            alp[c-'a']--;
+        }
+
+                        return true;
+
+    }
+}

@@ -1,0 +1,26 @@
+Reason for Sorting
+The reason why we sort the input array of strings and compare the first and last strings is that the longest common prefix of all the strings must be a prefix of the first string and a prefix of the last string in the sorted array. This is because strings are ordered based on their alphabetical order (Lexicographical order).
+For example, consider the input array of strings {"flower", "flow", "flight"}. After sorting the array, we get {"flight", "flow", "flower"}. The longest common prefix of all the strings is "fl", which is located at the beginning of the first string "flight" and the second string "flow". Therefore, by comparing the first and last strings of the sorted array, we can easily find the longest common prefix.
+
+class Solution {
+    
+    
+    public String longestCommonPrefix(String[] str) {
+        Arrays.sort(str);
+        String s1 = str[0];
+        String s2 = str[str.length-1];
+
+       
+        int i = 0;
+
+        while(i<s1.length() && i<s2.length()){
+            if(s1.charAt(i)==s2.charAt(i)){
+                i++;
+            }else{
+                break;
+            }
+        }
+        
+       return s1.substring(0,i);
+    }
+}
